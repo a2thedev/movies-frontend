@@ -2,19 +2,24 @@ import "./App.css";
 import Header from "./components/Header/Header";
 import MovieList from "./components/MovieList/MovieList";
 import MovieInfo from "./components/MovieInfo/Movieinfo";
-
+import axios from "axios";
 function App() {
   const selectedMovie = {
     title: "Forrest Gump",
     runningTime: 142,
     genre: "Romantic Drama",
   };
+  const fetchMovies = () => {
+    const response = axios.get();
+  };
 
   return (
     <div className="App">
       <Header />
-      <MovieList />
-      <MovieInfo movieObj={selectedMovie} />
+      <div className="flex-container">
+        <MovieList />
+        <MovieInfo movieObj={selectedMovie} />
+      </div>
     </div>
   );
 }

@@ -1,7 +1,6 @@
 import MovieItem from "../MovieItem/MovieItem";
 
-const MovieList = ({}) => {
-  const movies = ["Princess Bride", "Forrest Gump", "Iron Man", "Pulp Fiction"];
+const MovieList = ({ movies = [] }) => {
   const movieItems = movies.map((movie) => (
     <MovieItem key={movie} title={movie} />
   ));

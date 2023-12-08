@@ -1,18 +1,20 @@
 const MovieInfo = ({ movieObj }) => {
   return (
-    <div className="flex-item">
-      <h4>{movieObj.title}</h4>
-      <div>
+    movieObj && (
+      <div className="flex-item">
+        <h4>{movieObj.title}</h4>
         <div>
-          <span>Running Time</span>
-          <span>{movieObj.runningTime}</span>
-        </div>
-        <div>
-          <span>Genre</span>
-          <span>{movieObj.genre}</span>
+          <div>
+            <span>Running Time</span>
+            <span>{movieObj.runningTime}</span>
+          </div>
+          <div>
+            <span>Genre</span>
+            <span>{movieObj.genre}</span>
+          </div>
         </div>
       </div>
-    </div>
+    )
   );
 };
 

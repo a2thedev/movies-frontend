@@ -3,20 +3,29 @@ import Header from "./components/Header/Header";
 import MovieList from "./components/MovieList/MovieList";
 import MovieInfo from "./components/MovieInfo/Movieinfo";
 import NewMovieForm from "./components/NewMovieForm/NewMovieForm";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import initData from "./data/data";
 
-import axios from "axios";
+// import axios from "axios";
 function App() {
-  const [movies, setMovies] = useState();
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    setMovies(initData);
+  }, []);
+
+  const handleNewMovie = (newMovie) => {
+    const updatedMovies = [...movies, newMovie];
+    setMovies(updatedMovies);
+  };
 
   const selectedMovie = {
     title: "Forrest Gump",
     runningTime: 142,
     genre: "Romantic Drama",
   };
-  const fetchMovies = () => {
-    const response = axios.get();
-  };
+  //const fetchMovies = () => {
+  //const response = axios.get();
 
   return (
     <div className="App">
@@ -24,7 +33,7 @@ function App() {
       <div className="flex-container">
         <MovieList movies={movies} />
         <MovieInfo movieObj={selectedMovie} />
-        <NewMovieForm />
+        <NewMovieForm onNewMovie={handleNewMovie} />
       </div>
     </div>
   );

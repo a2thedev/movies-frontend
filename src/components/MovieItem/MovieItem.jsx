@@ -12,9 +12,10 @@ const MovieItem = ({ title, activeIndex, setActiveIndex, index }) => {
   };
 
   const btnClass = isFavorite ? "active-btn" : "";
+  const activeClass = index === activeIndex ? "active-movie" : "";
 
   return (
-    <div onClick={handleActive} className="movie-item">
+    <div onClick={handleActive} className={`movie-item ${activeClass}`}>
       <span>{title}</span>
       <button className={btnClass} onClick={handleFavorite}>
         Favorite

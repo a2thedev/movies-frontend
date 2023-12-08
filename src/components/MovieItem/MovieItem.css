@@ -1,3 +1,19 @@
 .active-btn {
   background-color: mediumslateblue;
 }
+
+.movie-item {
+  border-bottom: 2px solid grey;
+  padding: 5px 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.movie-item:hover {
+  cursor: pointer;
+  background-color: antiquewhite;
+}
+
+.active-movie {
+  background-color: grey;
+}

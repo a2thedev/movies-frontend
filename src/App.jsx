@@ -4,16 +4,17 @@ import MovieList from "./components/MovieList/MovieList";
 import MovieInfo from "./components/MovieInfo/Movieinfo";
 import NewMovieForm from "./components/NewMovieForm/NewMovieForm";
 import React, { useState, useEffect } from "react";
-import initData from "./data/data";
+import axios from "axios";
 
-// import axios from "axios";
 function App() {
   const [movies, setMovies] = useState([]);
   const [activeIndex, setActiveIndex] = useState(-1);
 
-  useEffect(() => {
-    setMovies(initData);
-  }, []);
+  const fetchMovies = async () => {
+    const response = await axios.get("https://localhost:7276/api/movies");
+    console.log(response);
+  };
+  useEffect(() => {}, []);
 
   const handleNewMovie = (newMovie) => {
     const updatedMovies = [...movies, newMovie];
@@ -21,12 +22,11 @@ function App() {
   };
 
   const selectedMovie = movies[activeIndex];
-  //const fetchMovies = () => {
-  //const response = axios.get();
 
   return (
     <div className="App">
       <Header />
+      <button onClick={fetchMovies}>fetch Movies</button>
       <div className="flex-container">
         <MovieList
           movies={movies}

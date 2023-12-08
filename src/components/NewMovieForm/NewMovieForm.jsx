@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import TextField from "../TextField/TextField";
 
 const NewMovieForm = ({ onNewMovie }) => {
   const [title, setTitle] = useState("");
@@ -18,21 +19,13 @@ const NewMovieForm = ({ onNewMovie }) => {
   return (
     <form onSubmit={handleSubmit} className="flex-item">
       <h4>Add Movie</h4>
-      <div>
-        <label>TItle</label>
-        <input value={title} onChange={(e) => setTitle(e.target.value)} />
-      </div>
-      <div>
-        <label>Running Time</label>
-        <input
-          value={runningTime}
-          onChange={(e) => setRunningTime(e.target.value)}
-        />
-      </div>
-      <div>
-        <label>Genre</label>
-        <input value={genre} onChange={(e) => setGenre(e.target.value)} />
-      </div>
+      <TextField label="Title" value={title} onChange={setTitle} />
+      <TextField
+        label="Running Time"
+        value={runningTime}
+        onChange={setRunningTime}
+      />
+      <TextField label="Genre" value={genre} onChange={setGenre} />
       <button type="submit">Add Movie</button>
     </form>
   );

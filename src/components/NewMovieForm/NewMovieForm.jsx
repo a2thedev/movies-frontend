@@ -31,14 +31,20 @@ const NewMovieForm = ({ onNewMovie }) => {
   return (
     <form onSubmit={handleSubmit} className="flex-item">
       <h4>Add Movie</h4>
-      <TextField label="Title" value={title} onChange={setTitle} />
-      <TextField
-        label="Running Time"
-        value={runningTime}
-        onChange={setRunningTime}
-      />
-      <TextField label="Genre" value={genre} onChange={setGenre} />
-      <button type="submit">Add Movie</button>
+      <div className="p-2">
+        <TextField label="Title" value={title} onChange={setTitle} />
+        <TextField
+          label="Running Time"
+          value={runningTime}
+          onChange={setRunningTime}
+        />
+        <TextField label="Genre" value={genre} onChange={setGenre} />
+        <div className="d-flex justify-content-end">
+          <button className="btn btn-primary" type="submit">
+            Add Movie
+          </button>
+        </div>
+      </div>
     </form>
   );
 };

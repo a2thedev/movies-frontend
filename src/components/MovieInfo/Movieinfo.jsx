@@ -6,8 +6,6 @@ import "./MovieInfo.css";
 const MovieInfo = ({ movieObj }) => {
   const [flixData, setFlixData] = useState(null);
 
-  console.log("FlixData:", flixData);
-
   const fetchFlixData = async () => {
     try {
       const response = await axios.get(

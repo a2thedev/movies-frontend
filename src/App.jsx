@@ -11,10 +11,18 @@ function App() {
   const [activeIndex, setActiveIndex] = useState(-1);
 
   const fetchMovies = async () => {
-    const response = await axios.get("https://localhost:7276/api/movies");
-    console.log(response);
+    try {
+      const response = await axios.get("https://localhost:7276/api/movies");
+
+      // console.log(response);
+      setMovies(response.data);
+    } catch (error) {
+      console.warn("Error in fetchMovies request: ", error);
+    }
   };
-  useEffect(() => {}, []);
+  useEffect(() => {
+    fetchMovies();
+  }, []);
 
   const handleNewMovie = (newMovie) => {
     const updatedMovies = [...movies, newMovie];
@@ -26,7 +34,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <button onClick={fetchMovies}>fetch Movies</button>
+
       <div className="flex-container">
         <MovieList
           movies={movies}
